@@ -22,6 +22,14 @@ jobs:
     
     - name: Build Next.js app
       run: npm run build
+
+    - name: Run tests
+      run: npm run e2e:headless
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: e2a-video
+        path: cypress/videos/
     
     - name: List files in the build directory
       run: ls -lah
